@@ -1,0 +1,26 @@
+{
+  "promocion": {
+    "titulo": "Depósito a Plazo Soles",
+    "descripcion": "Multiplica tus ahorros con un depósito a plazo fijo",
+    "tasa": "4.75%",
+    "moneda": "TREA soles",
+    "tasaAdicional": "0.10%",
+    "requisitos": "Si traes tus ahorros desde S/ 100,000 de otras instituciones, podrás ganar adicional",
+    "boton": {
+      "texto": "Conoce más",
+      "url": "#"
+    }
+  },
+  "menu": [
+    "Personas",
+    "Empresas",
+    "Convenios",
+    "Productos",
+    "Ayuda",
+    "Promociones"
+  ],
+  "bancaVirtual": {
+    "texto": "Banca Virtual",
+    "url": "#"
+  }
+}

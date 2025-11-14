@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bancom - Depósito a Plazo Soles</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      nav {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9375rem 3.125rem; /* 15px 50px */
+        box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1); /* 0 2px 6px */
+      }
+
+      .logo img {
+        height: 2.8125rem; /* 45px */
+        width: auto;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.875rem; /* 30px */
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        color: #333;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .btn-banca {
+        background-color: red;
+        color: white;
+        padding: 0.625rem 1.25rem; /* 10px 20px */
+        border-radius: 1.5625rem; /* 25px */
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .banner {
+        background: linear-gradient(90deg, #0047ba, #002b7f);
+        color: white;
+        padding: 5rem 6.25rem; /* 80px 100px */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .banner-text {
+        max-width: 31.25rem; /* 500px */
+      }
+
+      .banner-text h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.625rem; /* 10px */
+      }
+
+      .banner-text p {
+        margin-bottom: 1.5625rem; /* 25px */
+      }
+
+      .btn-rojo {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5625rem; /* 12px 25px */
+        border-radius: 1.5625rem; /* 25px */
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-rojo:hover {
+        background-color: #cc0000;
+      }
+
+      .banner-numero {
+        text-align: right;
+        font-size: 3em;
+        color: gold;
+        font-weight: bold;
+      }
+
+      .subtext {
+        color: white;
+        font-size: 1.2em;
+      }
+
+      /* === SECCIÓN PRODUCTOS === */
+      .productos {
+        text-align: center;
+        padding: 3.75rem 3.125rem; /* 60px 50px */
+        background-color: #fff;
+      }
+
+      .productos h2 {
+        font-size: 2em;
+        margin-bottom: 0.625rem; /* 10px */
+        color: #222;
+      }
+
+      .productos .underline {
+        width: 5rem; /* 80px */
+        height: 0.1875rem; /* 3px */
+        background-color: red;
+        margin: 0.625rem auto 2.5rem; /* 10px auto 40px */
+        border-radius: 0.125rem; /* 2px */
+      }
+
+      .productos-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.875rem; /* 30px */
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 0.5rem; /* 8px */
+        box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1); /* 0 2px 10px */
+        overflow: hidden;
+        width: 18.75rem; /* 300px */
+        text-align: left;
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-0.3125rem); /* -5px */
+      }
+
+      .card img {
+        width: 100%;
+        height: 11.25rem; /* 180px */
+        object-fit: cover;
+      }
+
+      .etiqueta {
+        background-color: red;
+        color: white;
+        padding: 0.3125rem 0.625rem; /* 5px 10px */
+        position: absolute;
+        bottom: 0.625rem; /* 10px */
+        left: 0.625rem; /* 10px */
+        border-radius: 0.25rem; /* 4px */
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+
+      .card-body {
+        padding: 0.9375rem; /* 15px */
+      }
+
+      .card-body h3 {
+        font-size: 1.1em;
+        color: #333;
+        margin-top: 0.625rem; /* 10px */
+      }
+
+      .card-img {
+        position: relative;
+      }
+
+      /* === VIDEO === */
+      .video-section {
+        background-color: #fff;
+        text-align: center;
+        padding: 3.75rem 1.25rem; /* 60px 20px */
+      }
+
+      .video-section iframe {
+        max-width: 100%;
+        border-radius: 0.625rem; /* 10px */
+      }
+
+      /* === BOTÓN REGISTRO === */
+      .registro-section {
+        text-align: center;
+        padding: 3.125rem 1.25rem; /* 50px 20px */
+        background-color: #f9f9f9;
+      }
+
+      .registro-section h2 {
+        color: #222;
+        margin-bottom: 1.25rem; /* 20px */
+      }
+
+      .btn-registro {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 0.9375rem 2.1875rem; /* 15px 35px */
+        border-radius: 1.875rem; /* 30px */
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .btn-registro:hover {
+        background-color: #cc0000;
+        transform: scale(1.05);
+      }
+
+      /* === PIE DE PAGINA === */
+      .footer {
+        background-color: #002b7f; /* Azul oscuro del banner */
+        color: white;
+        padding: 3.125rem 3.125rem; /* 50px 50px */
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap; /* Para responsividad */
+        max-width: 75rem; /* 1200px */
+        margin: 0 auto; /* Centrar contenedor */
+        gap: 1.875rem; /* 30px */
+      }
+
+      .footer-brand,
+      .footer-links,
+      .footer-social {
+        flex: 1; /* Ocupan espacio similar */
+        min-width: 12.5rem; /* 200px */
+      }
+
+      .footer-logo {
+        height: 2.8125rem; /* 45px */
+        margin-bottom: 0.625rem; /* 10px */
+      }
+
+      .footer-brand p {
+        font-size: 1.25rem; /* 20px */
+        font-weight: bold;
+        margin: 0.3125rem 0; /* 5px 0 */
+      }
+
+      .footer-brand small {
+        font-size: 0.875rem; /* 14px */
+        color: #ccc;
+      }
+
+      .footer-links h4,
+      .footer-social h4 {
+        font-size: 1.125rem; /* 18px */
+        margin-bottom: 1rem; /* 16px */
+        color: #fff;
+      }
+
+      .footer-links a {
+        color: #f5f5f5;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.625rem; /* 10px */
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: red; /* Color de acento */
+      }
+
+      .footer-social a {
+        display: inline-block;
+        margin-right: 0.625rem; /* 10px */
+      }
+
+      .social-icon {
+        width: 1.875rem; /* 30px */
+        height: 1.875rem; /* 30px */
+        transition: transform 0.2s ease;
+        background-color: white; /* Para que se vean bien los iconos png */
+        border-radius: 50%; /* Redondearlos */
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/25/Bancom_%28Banco_de_Comercio%29_Logo.png"
+          alt="Logo Bancom"
+        />
+      </div>
+      <ul>
+        <li>Personas</li>
+        <li>Empresas</li>
+        <li>Convenios</li>
+        <li>Productos</li>
+        <li>Ayuda</li>
+        <li>Promociones</li>
+      </ul>
+      <a href="#" class="btn-banca">Banca Virtual</a>
+    </nav>
+
+    <section class="banner">
+      <div class="banner-text">
+        <h1>Depósito a Plazo Soles</h1>
+        <p>Multiplica tus ahorros con un depósito a plazo fijo</p>
+        <button class="btn-rojo">Conoce más</button>
+      </div>
+      <div class="banner-numero">
+        Hasta <br /><span style="font-size: 3.5em">4.75%</span><br />
+        <span class="subtext">TREA soles</span><br /><br />
+        <span style="font-size: 1.2em">+0.10% adicional</span>
+      </div>
+    </section>
+
+    <section class="productos">
+      <h2>Productos para ti</h2>
+      <div class="underline"></div>
+
+      <div class="productos-container">
+        <div class="card">
+          <div class="card-img">
+            <img src="https://i.imgur.com/W1qVfZh.jpg" alt="Préstamo Digital" />
+            <div class="etiqueta">Préstamo Digital</div>
+          </div>
+          <div class="card-body">
+            <h3>Alcanza tus sueños</h3>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img
+              src="https://i.imgur.com/QKk3fwW.jpg"
+              alt="Préstamos Convenios"
+            />
+            <div class="etiqueta">Préstamos Convenios</div>
+          </div>
+          <div class="card-body">
+            <h3>Selecciona tu convenio</h3>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="https://i.imgur.com/Kn5n3x2.jpg" alt="Cuenta Digital" />
+            <div class="etiqueta">Cuenta Digital</div>
+          </div>
+          <div class="card-body">
+            <h3>Tu cuenta sin ir al banco</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/zKIbyE86wPA?si=9WcnRLuS8tFgLWSj"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+    </section>
+
+    <section class="registro-section">
+      <h2>¿Aún no tienes cuenta?</h2>
+      <button
+        class="btn-registro"
+        onclick="window.location.href='registro.html'"
+      >
+        Regístrate ahora
+      </button>
+    </section>
+
+    <section id="footer">
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/25/Bancom_%28Banco_de_Comercio%29_Logo.png"
+              alt="Logo Bancom"
+              class="footer-logo"
+            />
+            <p>Bancom</p>
+            <small>© 2025 Todos los derechos reservados</small>
+          </div>
+
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Protección de Datos</a>
+          </div>
+
+          <div class="footer-social">
+            <h4>Síguenos</h4>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
+                alt="Facebook"
+                class="social-icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/145/145812.png"
+                alt="Instagram"
+                class="social-icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/145/145807.png"
+                alt="LinkedIn"
+                class="social-icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/145/145806.png"
+                alt="Twitter"
+                class="social-icon"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
